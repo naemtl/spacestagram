@@ -1,9 +1,11 @@
+import SpaceFeed from "./pages/SpaceFeed/SpaceFeed"
+
 const App = () => {
-  return (
-    <div>
-      SPACESTAGRAM
-    </div>
-  )
+	return (
+		<>
+			<SpaceFeed />
+		</>
+	)
 }
 
 export default App
