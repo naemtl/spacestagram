@@ -4,13 +4,9 @@ const initialState = {
     posts: []
 }
 
-let postsRequest;
-const fetchPosts = createAsyncThunk("posts/fetch", async () => {
-    if (!postsRequest) {
-        postsRequest = fetch("https://api.nasa.gov/planetary/apod?api_key=D59JwJ4Gju5ds48Hbi90twGhu33kvzQZwBGb9hE3")
-            .then((response) => response.json());
-    }
-    return postsRequest;
+export const fetchPosts = createAsyncThunk("posts/fetch", async () => {
+    return fetch("https://api.nasa.gov/planetary/apod?api_key=D59JwJ4Gju5ds48Hbi90twGhu33kvzQZwBGb9hE3")
+        .then((response) => response.json());
 });
 
 export const postsSlice = createSlice({
@@ -23,7 +19,7 @@ export const postsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchPosts.fulfilled, (state, { payload }) => {
-            state.posts = payload
+            state.posts.push(payload)
         })
     }
 })
