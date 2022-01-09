@@ -17,8 +17,6 @@ const SpaceFeed = () => {
             <div className="space-feed__mars">
                 {marsRoverPosts.map(post => <img key={post.id} src={post.img_src} alt={post.camera.name} />)}
             </div>
-
-            test
         </div>
     )
 }
