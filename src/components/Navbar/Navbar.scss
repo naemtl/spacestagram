@@ -1,4 +1,11 @@
 .navbar {
+    align-items: center;
+    background-color: silver;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 0;
+
     &__item {
+        margin-right: 10px;
     }
 }
