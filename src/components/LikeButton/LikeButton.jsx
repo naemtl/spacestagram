@@ -6,9 +6,23 @@ import "./LikeButton.scss"
 
 const LikeButton = ({ postId }) => {
 
+    const likeHandler = (postId) => {
+        let localStorageArray = JSON.parse(localStorage.getItem('likedPostsList'))
+
+        localStorageArray = localStorageArray || []
+
+        localStorageArray = localStorageArray.find(id => id == postId) ? localStorageArray.filter(id => id != postId) : localStorageArray.concat([postId])
+
+        localStorage.setItem('likedPostsList', JSON.stringify(localStorageArray))
+    }
+
     return (
         <div className="like-button">
-            <input type="checkbox" name="Like" onChange={() => console.log(postId)} />
+            <input
+                type="checkbox"
+                name="Like"
+                onChange={() => likeHandler(postId)}
+            />
             <FaHeart />
         </div>
     )
