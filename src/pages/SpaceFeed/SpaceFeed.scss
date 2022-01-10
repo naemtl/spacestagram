@@ -1,7 +1,8 @@
 .space-feed {
-    &__daily {
-    }
-
-    &__mars {
+    &__mars-rover {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-gap: 10px;
+        justify-content: center;
     }
 }

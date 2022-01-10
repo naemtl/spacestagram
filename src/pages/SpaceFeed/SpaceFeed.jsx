@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMarsRoverPosts, selectMarsRoverPosts } from "../../state/posts/postsSlice";
 
+import SinglePost from "./SinglePost/SinglePost";
+
 import "./SpaceFeed.scss"
 
 const SpaceFeed = () => {
@@ -14,8 +16,10 @@ const SpaceFeed = () => {
 
     return (
         <div className="space-feed">
-            <div className="space-feed__mars">
-                {marsRoverPosts.map(post => <img key={post.id} src={post.img_src} alt={post.camera.name} />)}
+            <div className="space-feed__mars-rover">
+                {marsRoverPosts.map(post =>
+                    <SinglePost key={post.id} post={post} />
+                )}
             </div>
         </div>
     )
