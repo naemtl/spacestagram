@@ -16,6 +16,7 @@ const SpaceFeed = () => {
 
     return (
         <div className="space-feed">
+            <h1 className="space-feed__title">Spacefeed</h1>
             <div className="space-feed__mars-rover">
                 {marsRoverPosts.map(post =>
                     <SinglePost key={post.id} post={post} />

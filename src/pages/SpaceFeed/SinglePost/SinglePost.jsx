@@ -1,3 +1,5 @@
+import LikeButton from "../../../components/LikeButton/LikeButton"
+
 import "./SinglePost.scss"
 
 const SinglePost = ({ post }) => {
@@ -12,12 +14,11 @@ const SinglePost = ({ post }) => {
                 />
             </div>
             <div className="single-post__controls">
-                <input type="checkbox" name="Like" />
-                <input type="checkbox" name="Bookmark" />
+                <LikeButton />
+                <div className="single-post__date">{post.earth_date}</div>
             </div>
             <div className="single-post__rover">{post.rover.name} rover</div>
             <div className="single-post__camera">{post.camera.full_name} image #{post.id}</div>
-            <div className="single-post__date">{post.earth_date}</div>
         </div>
     )
 }
