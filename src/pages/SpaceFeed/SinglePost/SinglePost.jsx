@@ -14,7 +14,7 @@ const SinglePost = ({ post }) => {
                 />
             </div>
             <div className="single-post__controls">
-                <LikeButton />
+                <LikeButton postId={post.id} />
                 <div className="single-post__date">{post.earth_date}</div>
             </div>
             <div className="single-post__rover">{post.rover.name} rover</div>
