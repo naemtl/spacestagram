@@ -17,7 +17,7 @@ const LikeButton = ({ postId }) => {
     const likeHandler = (postId) => {
         let localStorageArray = getLocalStorageArray()
 
-        if (localStorageArray.find(id => id === postId)) {
+        if (localStorageArray.includes(postId)) {
             localStorageArray = localStorageArray.filter(id => id !== postId)
             setIsLiked(false)
         } else {
