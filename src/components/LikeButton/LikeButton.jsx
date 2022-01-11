@@ -1,17 +1,29 @@
+import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
+
+import { getLocalStorageArray } from "../../utils/localStorageHelper";
 
 import "./LikeButton.scss"
 
-// on check, add id of post entry to array and save in localstorage, then compare localstorage to posts array, and only display those that have appeared in localstorage array
-
 const LikeButton = ({ postId }) => {
+    const [isLiked, setIsLiked] = useState(false)
+
+    useEffect(() => {
+        const localStorageArray = getLocalStorageArray()
+
+        localStorageArray.includes(postId) ? setIsLiked(true) : setIsLiked(false)
+    }, [postId])
 
     const likeHandler = (postId) => {
-        let localStorageArray = JSON.parse(localStorage.getItem('likedPostsList'))
+        let localStorageArray = getLocalStorageArray()
 
-        localStorageArray = localStorageArray || []
-
-        localStorageArray = localStorageArray.find(id => id == postId) ? localStorageArray.filter(id => id != postId) : localStorageArray.concat([postId])
+        if (localStorageArray.find(id => id === postId)) {
+            localStorageArray = localStorageArray.filter(id => id !== postId)
+            setIsLiked(false)
+        } else {
+            localStorageArray = localStorageArray.concat([postId])
+            setIsLiked(true)
+        }
 
         localStorage.setItem('likedPostsList', JSON.stringify(localStorageArray))
     }
@@ -19,9 +31,10 @@ const LikeButton = ({ postId }) => {
     return (
         <div className="like-button">
             <input
-                type="checkbox"
+                checked={isLiked}
                 name="Like"
                 onChange={() => likeHandler(postId)}
+                type="checkbox"
             />
             <FaHeart />
         </div>
