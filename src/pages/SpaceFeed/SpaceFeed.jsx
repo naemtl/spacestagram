@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMarsRoverPosts, selectMarsRoverPosts } from "../../state/posts/postsSlice";
 
-import SinglePost from "./SinglePost/SinglePost";
+import SinglePost from "../../components/SinglePost/SinglePost";
 
 import "./SpaceFeed.scss"
 
