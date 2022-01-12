@@ -1,3 +1,5 @@
+@import "../../assets/styles/common";
+
 .like-button {
     cursor: pointer;
     position: relative;
@@ -22,28 +24,5 @@
     input:checked + svg {
         fill: #ff0000;
         animation: 0.5s linear burst;
-    }
-}
-
-@keyframes burst {
-    0%,
-    10% {
-        transform: scale(1);
-        opacity: 0.5;
-        color: #e6e6fa;
-    }
-    45% {
-        transform: scale(0.5);
-        opacity: 0.75;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-        color: #ff0000;
-    }
-    90%,
-    100% {
-        transform: scale(1);
-        text-shadow: none;
     }
 }

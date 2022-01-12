@@ -1,0 +1,12 @@
+@use 'sass:math';
+
+// px to rem converter
+@function stripUnit($value) {
+    @return math.div($value, ($value * 0 + 1));
+}
+
+@function rem($pxValue) {
+    @return #{math.div(stripUnit($pxValue), stripUnit(16px))}rem; // 16px needed for root font-size
+}
+
+// ...
