@@ -2,13 +2,7 @@
 
 .space-feed {
     &__mars-rover {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, rem(300px));
-        grid-gap: rem(10px);
-        justify-content: center;
-        max-width: rem(1024px);
-        margin: 0 auto;
-        width: 100%;
+        @include spacefeed-grid;
     }
 
     &__title {
