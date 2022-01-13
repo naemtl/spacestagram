@@ -1,26 +1,41 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMarsRoverPosts, selectMarsRoverPosts } from "../../state/posts/postsSlice";
+import { useEffect, useState } from "react";
 
+import Loader from "../../components/Loader/Loader";
 import SinglePost from "../../components/SinglePost/SinglePost";
 
 import "./SpaceFeed.scss"
 
 const SpaceFeed = () => {
-    const dispatch = useDispatch()
-    const marsRoverPosts = useSelector(selectMarsRoverPosts)
+    const API_KEY = "D59JwJ4Gju5ds48Hbi90twGhu33kvzQZwBGb9hE3"
+
+    const [marsRoverPosts, setMarsRoverPosts] = useState([])
 
     useEffect(() => {
-        dispatch(fetchMarsRoverPosts())
-    }, [dispatch])
+        async function getMarsRoverPosts() {
+            try {
+                const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=${API_KEY}`)
+
+                const data = await response.json()
+
+                setMarsRoverPosts(data.photos)
+
+            } catch (error) {
+                console.error("Rover seems to be malfunctioning", error);
+            }
+        }
+        getMarsRoverPosts()
+    }, [])
 
     return (
         <div className="space-feed">
             <h1 className="space-feed__title">Spacefeed</h1>
             <div className="space-feed__mars-rover">
-                {marsRoverPosts.map(post =>
-                    <SinglePost key={post.id} post={post} />
-                )}
+                {
+                    marsRoverPosts ? marsRoverPosts.map(post =>
+                        <SinglePost key={post.id} post={post} />
+                    )
+                        : <Loader />
+                }
             </div>
         </div>
     )

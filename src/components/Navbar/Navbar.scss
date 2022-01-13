@@ -2,16 +2,5 @@
     align-items: center;
     background-color: silver;
     display: flex;
-    justify-content: space-between;
     padding: 1rem;
-
-    &__left {
-        display: flex;
-    }
-
-    &__item {
-        &:first-child {
-            margin-right: 1rem;
-        }
-    }
 }
