@@ -15,11 +15,9 @@
     }
 
     &__image-container {
-        align-items: center;
+        @include flex-center;
         background-color: #606060;
-        display: flex;
         height: rem(257px);
-        justify-content: center;
         margin-bottom: rem(5px);
     }
 }
