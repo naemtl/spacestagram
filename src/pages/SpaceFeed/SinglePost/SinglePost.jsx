@@ -1,4 +1,4 @@
-import LikeButton from "../LikeButton/LikeButton"
+import LikeButton from "../../../components/LikeButton/LikeButton"
 
 import "./SinglePost.scss"
 

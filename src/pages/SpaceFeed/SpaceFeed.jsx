@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Loader from "../../components/Loader/Loader";
-import SinglePost from "../../components/SinglePost/SinglePost";
+import SinglePost from "./SinglePost/SinglePost";
 
 import "./SpaceFeed.scss"
 
@@ -38,7 +38,7 @@ const SpaceFeed = () => {
 
     return (
         <div className="space-feed">
-            <h1 className="space-feed__title">Spacefeed</h1>
+            <h1 className="space-feed__title">Mars Rover API</h1>
             {
                 !isLoading ? displayRoverPhotos() : <Loader />
             }
