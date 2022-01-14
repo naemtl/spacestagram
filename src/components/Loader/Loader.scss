@@ -1,2 +1,11 @@
+@import "../../assets/styles/common";
+
 .loader {
+    @include flex-center;
+    margin-top: 3rem;
+
+    svg {
+        animation: spin 2s infinite linear;
+        font-size: 6rem;
+    }
 }

@@ -9,6 +9,7 @@ const SpaceFeed = () => {
     const API_KEY = "D59JwJ4Gju5ds48Hbi90twGhu33kvzQZwBGb9hE3"
 
     const [marsRoverPosts, setMarsRoverPosts] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         async function getMarsRoverPosts() {
@@ -18,6 +19,7 @@ const SpaceFeed = () => {
                 const data = await response.json()
 
                 setMarsRoverPosts(data.photos)
+                setIsLoading(false)
 
             } catch (error) {
                 console.error("Rover seems to be malfunctioning", error);
@@ -26,17 +28,20 @@ const SpaceFeed = () => {
         getMarsRoverPosts()
     }, [])
 
+    const displayRoverPhotos = () => (
+        <div className="space-feed__mars-rover">
+            {marsRoverPosts.map(post =>
+                <SinglePost key={post.id} post={post} />
+            )}
+        </div>
+    )
+
     return (
         <div className="space-feed">
             <h1 className="space-feed__title">Spacefeed</h1>
-            <div className="space-feed__mars-rover">
-                {
-                    marsRoverPosts ? marsRoverPosts.map(post =>
-                        <SinglePost key={post.id} post={post} />
-                    )
-                        : <Loader />
-                }
-            </div>
+            {
+                !isLoading ? displayRoverPhotos() : <Loader />
+            }
         </div>
     )
 }
