@@ -13,12 +13,16 @@ const SinglePost = ({ post }) => {
                     alt={`${post.camera.full_name}`}
                 />
             </div>
-            <div className="single-post__controls">
-                <LikeButton postId={post.id} />
-                <div className="single-post__date">{post.earth_date}</div>
+            <div className="single-post__metadata">
+                <div className="single-post__controls">
+                    <LikeButton postId={post.id} />
+                    <div className="single-post__date">{post.earth_date}</div>
+                </div>
+                <div className="single-post__camera">
+                    <span>#{post.id}</span> {post.camera.full_name} image
+                </div>
+                <div className="single-post__rover">{post.rover.name} rover</div>
             </div>
-            <div className="single-post__rover">{post.rover.name} rover</div>
-            <div className="single-post__camera">{post.camera.full_name} image #{post.id}</div>
         </div>
     )
 }
