@@ -2,10 +2,11 @@ import "./Footer.scss"
 
 const Footer = () => {
     return (
-        <div className="footer">
-            <div className="footer__item"></div>
-            <div className="footer__item"></div>
-        </div>
+        <footer className="footer">
+            <div>
+                &copy; Developed by <a className="footer__link" href="https://github.com/naemtl">Matthew Stinis</a>, 2022
+            </div>
+        </footer>
     )
 }
 
