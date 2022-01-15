@@ -2,9 +2,9 @@ import "./Navbar.scss"
 
 const Navbar = () => {
     return (
-        <div className="navbar">
+        <nav className="navbar">
             <div className="navbar__title">Spacestagram</div>
-        </div>
+        </nav>
     )
 }
 

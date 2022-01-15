@@ -39,8 +39,9 @@ const SpaceFeed = () => {
     return (
         <div
             className={
-                `${!isLoading ? "" : "space-feed--full-height"} space-feed`
+                `${!isLoading ? "" : "space-feed--full-height "}space-feed`
             }
+            role="main"
         >
             <h1 className="space-feed__title">Mars Rover API</h1>
             {

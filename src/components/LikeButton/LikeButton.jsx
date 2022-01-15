@@ -31,6 +31,7 @@ const LikeButton = ({ postId }) => {
     return (
         <div className="like-button">
             <input
+                aria-label="Like"
                 checked={isLiked}
                 name="Like"
                 onChange={() => likeHandler(postId)}
